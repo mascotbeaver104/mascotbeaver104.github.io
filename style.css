@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css?family=Viga&display=swap');
+
+:root{
+    text-align: center;
+    font-family: 'Viga', sans-serif;
+    color:#C7CAE1;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+.page-wrap{
+    display: grid;
+    background-color:#A4A9CE;
+    grid-template-rows: 10vh 80vh 10vh;
+    grid-template-columns: 20vw 60vw 20vw;
+    grid-template-areas:
+
+    'header header header'
+    'game game ad'
+    'footer footer footer'    
+}
+
+header{
+    grid-area: header;
+    background-color: #464F8E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+header .title{
+    font-weight: normal;
+    margin: 0;
+}
+
+.ad{
+    grid-area: ad;
+    background-color: #6269A3;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    justify-self: center;
+    word-wrap: normal;
+    max-width: 200px;
+}
+.ad p{
+    word-wrap: normal;
+    font-size: 4vw;
+
+}
+
+.game{
+    grid-area: game;
+    background-color:#A4A9CE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#gameScreen{
+    border: 1px solid black;
+    background-color: white;
+    width: auto;
+    height: 50vw;
+    max-height: 90%;
+}
+footer{
+    display: flex;
+    background-color:#464F8E;
+    align-items: center;
+    justify-content: center;
+    grid-area: footer;
+}
+
+@media only screen and (min-width: 1000px){
+
+    .ad p{
+    font-size: 40px;
+    }
+}
+
+@media only screen and (min-width: 1300px){
+    .page-wrap{
+        grid-template-columns: 20vw 60vw 20vw;
+        grid-template-areas:
+    
+        'header header header'
+        'ad game null'
+        'footer footer footer'    
+    }
+}
+
+@media only screen and (max-width: 1000px){
+    .page-wrap{
+        display:grid;
+        grid-template-rows: 10vh 65vh 15vh 10vh;
+        grid-template-columns: 100vw;
+        grid-template-areas:
+        'header'
+        'game'
+        'ad'
+        'footer'
+    }
+    #gameScreen{
+        width: 95vw;
+        max-width:600px;
+        height: auto;
+        max-height: 100%;
+    }
+    .ad{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-self: center;
+        word-wrap: normal;
+        max-width: 100%;
+        padding: 0% 10% 0 10%;
+    }
+
+}
