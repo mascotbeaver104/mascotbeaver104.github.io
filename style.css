@@ -13,11 +13,11 @@ body{
     display: grid;
     background-color:#A4A9CE;
     grid-template-rows: 10vh 80vh 10vh;
-    grid-template-columns: 20vw 60vw 20vw;
+    grid-template-columns: 20vw 70vw 10vw;
     grid-template-areas:
 
     'header header header'
-    'game game ad'
+    'ad game null'
     'footer footer footer'    
 }
 
@@ -41,7 +41,7 @@ header .title{
     display: flex;
     justify-content: right;
     align-items: center;
-    justify-self: center;
+    justify-self: right;
     word-wrap: normal;
     max-width: 200px;
 }
