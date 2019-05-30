@@ -33,6 +33,7 @@ header{
 header .title{
     font-weight: normal;
     margin: 0;
+    font-size: 2em;
 }
 
 .ad{
@@ -71,12 +72,13 @@ footer{
     align-items: center;
     justify-content: center;
     grid-area: footer;
+
 }
 
 @media only screen and (min-width: 1000px){
 
     .ad p{
-    font-size: 40px;
+    font-size: 2.45em;
     }
 }
 
@@ -104,9 +106,11 @@ footer{
     }
     #gameScreen{
         width: 95vw;
+        min-width: 200px;
         max-width:600px;
-        height: auto;
-        max-height: 100%;
+        height: 71.25vw;
+        min-height: 150px;
+        max-height: 450px;
     }
     .ad{
         display: flex;
