@@ -17,7 +17,7 @@ body{
     grid-template-areas:
 
     'header header header'
-    'ad game null'
+    'ad calc null'
     'footer footer footer'    
 }
 
@@ -47,24 +47,99 @@ header .title{
     max-width: 200px;
 }
 .ad p{
+    position:relative;
     word-wrap: normal;
     font-size: 4vw;
 
 }
 
-.game{
-    grid-area: game;
+.calc{
+    padding: 5% 20% 5% 20%;
+    grid-area: calc;
     background-color:#A4A9CE;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template-rows: 18.5%;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-areas:
+        'output output output output'
+        'seven eight nine ac'
+        'four five six divide'
+        'one two three multiply'
+        'zero decimal c subtract'
+        'enter enter enter add'
 }
-#gameScreen{
-    border: 1px solid black;
+.output{
+    font-family: monospace;
+    grid-area: output;
     background-color: white;
-    width: auto;
-    height: 50vw;
-    max-height: 90%;
+    font-size: 2.5em;
+    color: #333;
+    align-content: center;
+    padding-top: 2vh;
+    text-align: right;
+    font-weight: bold;
+}
+.numpad{
+    font-size: 2em;
+    font-weight: bold;
+}
+.operation{
+    font-size: 2em;
+    font-weight: bold;
+}
+#enter{
+    grid-area: enter;
+}
+#one{
+    grid-area: one;
+}
+#two{
+    grid-area: two;
+}
+#three{
+    grid-area: three;
+}
+#four{
+    grid-area: four;
+}
+#five{
+    grid-area: five;
+}
+#six{
+    grid-area: six;
+}
+#seven{
+    grid-area: seven;
+}
+#eight{
+    grid-area: eight;
+}
+#nine{
+    grid-area: nine;
+}
+#zero{
+    grid-area: zero;
+}
+#decimal{
+    grid-area: decimal;
+}
+#add{
+    grid-area: add;
+}
+#subtract{
+    grid-area: subtract;
+}
+#divide{
+    grid-area: divide;
+}
+#multiply{
+    grid-area: multiply;
+}
+#ac{
+    grid-area: ac;
+}
+#c{
+    grid-area: c;
 }
 footer{
     display: flex;
@@ -88,29 +163,22 @@ footer{
         grid-template-areas:
     
         'header header header'
-        'ad game null'
+        'ad calc null'
         'footer footer footer'    
     }
 }
 
 @media only screen and (max-width: 1000px){
+    
     .page-wrap{
         display:grid;
         grid-template-rows: 10vh 65vh 15vh 10vh;
         grid-template-columns: 100vw;
         grid-template-areas:
         'header'
-        'game'
+        'calc'
         'ad'
         'footer'
-    }
-    #gameScreen{
-        width: 95vw;
-        min-width: 200px;
-        max-width:600px;
-        height: 71.25vw;
-        min-height: 150px;
-        max-height: 450px;
     }
     .ad{
         display: flex;
@@ -120,6 +188,6 @@ footer{
         word-wrap: normal;
         max-width: 100%;
         padding: 0% 10% 0 10%;
-    }
-
+     }
+    
 }

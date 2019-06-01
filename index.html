@@ -7,15 +7,34 @@
   </head>
   <div class="page-wrap">
 
-  <header><h1 class='title'>Sample Page</h1></header>
+  <header><h1 class='title'>HTML Calculator</h1></header>
     <div class="ad"><p>Google plz approve my AdSense so I can put things here</p></div>
-    <div class='game'>
-        <canvas id="gameScreen" width="800" height="600"> </canvas>
-        <script src="index.js"></script>
+    <div class='calc'>
+      <output id='output' class='output'></output>
+      <button type='button' class='numpad' id='one'>1</button>
+      <button type='button' class='numpad' id='two'>2</button>
+      <button type='button' class='numpad' id='three'>3</button>
+      <button type='button' class='numpad' id='four'>4</button>
+      <button type='button' class='numpad' id='five'>5</button>
+      <button type='button' class='numpad' id='six'>6</button>
+      <button type='button' class='numpad' id='seven'>7</button>
+      <button type='button' class='numpad' id='eight'>8</button>
+      <button type='button' class='numpad' id='nine'>9</button>
+      <button type='button' class='numpad' id='zero'>0</button>
+      <button type='button' class='numpad' id='decimal'>.</button>
+      <button type='button' class='operation' id='add'>+</button>
+      <button type='button' class='operation' id='subtract'>-</button>
+      <button type='button' class='operation' id='divide'>/</button>
+      <button type='button' class='operation' id='multiply'>*</button>
+      <button type='button' class='operation' id='enter'>=</button>
+      <button type='button' class='operation' id='ac'>AC</button>
+      <button type='button' class='operation' id='c'>C</button>
+      <script src='index.js'></script>
     </div>
   <footer>
     <p>Made by David Mercer-Taylor</p>
   </footer>
+
 
   </div>
 </html>
