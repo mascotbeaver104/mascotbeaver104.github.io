@@ -39,7 +39,7 @@ header{
 header .title{
     font-weight: normal;
     margin: 0;
-    font-size: 2em;
+    font-size: calc(1em + 3vh);
 }
 
 .ad{
@@ -51,6 +51,7 @@ header .title{
     justify-self: right;
     word-wrap: normal;
     max-width: 200px;
+    
 }
 .ad p{
     position:relative;
@@ -80,19 +81,20 @@ header .title{
     grid-area: output;
     background-color: var(--color1);
     color: var(--color5);
-    min-height: 50px;
-    font-size: 2.5rem;
+    min-height: 20px;
+    font-size: 5vh;
     align-content: center;
     padding-top: 3%;
     padding-right: 2%;
     text-align: right;
+    text-overflow: ellipsis;
     font-weight: bold;
     border-radius: 20px;
     border-collapse: separate;
     margin-bottom: 4%;
 }
 .numpad{
-    font-size: 2em;
+    font-size: 5vh;
     font-weight: bold;
     border-radius: 20%;
     margin: 2%;
@@ -101,7 +103,7 @@ header .title{
     background-color: var(--color5);
 }
 .operation{
-    font-size: 2em;
+    font-size: 5vh;
     font-weight: bold;
     border-radius: 20%;
     margin: 2%;
@@ -168,6 +170,7 @@ footer{
     align-items: center;
     justify-content: center;
     grid-area: footer;
+    font-size: calc(1vw + 1em);
 
 }
 
@@ -209,6 +212,22 @@ footer{
         word-wrap: normal;
         max-width: 100%;
         padding: 0% 10% 0 10%;
+        min-height: 50px;
      }
     
+}
+@media screen and (orientation: landscape){
+    .page-wrap{
+        grid-template-rows: 10vh 80vh 10vh;
+        grid-template-columns: 20vw 70vw 10vw;
+        grid-template-areas:
+        'header header header'
+        'ad calc null'
+        'footer footer footer'    
+    }
+    @media screen and (max-height: 500px){
+        .ad p{
+            font-size: 5vh
+        }
+    }
 }
