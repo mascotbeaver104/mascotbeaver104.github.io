@@ -39,13 +39,26 @@ function calculator(input){
         }
     }
     if(/clear/.test(input)){
-        if(opIndex != 0 && inputArr.length-1 > opIndex){
-            accIn = false;
-            disp = operators[inputArr[opIndex]](Number(inputArr.slice(0,opIndex).join('')), Number(inputArr.slice(opIndex+1).join('')));
-            inputArr = String(disp).split('');
-            opIndex = -1;
+        if(opIndex !=0){
+        while(inputArr.slice(opIndex+1).length>0){
+            inputArr.pop();
+            disp=inputArr.join('');
         }
+    }else{
+        input = 'allClear';
+        console.log('clear');
     }
+}
+    
+    if(/allClear/.test(input)){
+        console.log('allClear');
+        disp = '0';
+        inputArr = [];
+        accIn = true;
+        opIndex = -1;
+    }
+
+
 
 
     document.getElementById('output').innerHTML = disp;
