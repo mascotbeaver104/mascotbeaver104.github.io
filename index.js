@@ -39,7 +39,7 @@ function calculator(input){
         }
     }
     if(/clear/.test(input)){
-        if(opIndex !=0){
+        if(opIndex !=-1){
         while(inputArr.slice(opIndex+1).length>0){
             inputArr.pop();
             disp=inputArr.join('');
