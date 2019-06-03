@@ -14,25 +14,28 @@ body{
     margin: 0;
     padding: 0;
     color: var(--color1);
+
 }
 .page-wrap{
     display: grid;
-    background-color: var(--color4);
+    background-color: var(--color3);
     grid-template-rows: 10vh 80vh 10vh;
-    grid-template-columns: 20vw 70vw 10vw;
+    grid-template-columns: 100vw;
+    width: 100%;
     grid-template-areas:
-
-    'header header header'
-    'spacer calc null'
-    'footer footer footer'    
+    'header'
+    'calc'
+    'footer'
 }
 
 header{
+    width: 100%;
     grid-area: header;
     background-color: var(--color5);
     display: flex;
     align-items: center;
     justify-content: center;
+    min-height: 40px;
 
 }
 
@@ -45,13 +48,20 @@ header .title{
 
 
 .calc{
-    padding: 5% 20% 5% 20%;
+    align-self: center;
+    justify-self: center;
+    width: 85%;
+    height: 90%;
+    margin: 0px;
+    padding: 0px;
+    min-height: 150px;
     text-align: center;
     color: var(--color5);
     grid-area: calc;
     background-color:var(--color3);
     display: grid;
-    grid-template-rows: 18.5%;
+    max-width: 1000px;
+    grid-template-rows: 15% 17% 17% 17% 17% 17%;
     grid-template-columns: 25% 25% 25% 25%;
     grid-template-areas:
         'output output output output'
@@ -66,19 +76,20 @@ header .title{
     grid-area: output;
     background-color: var(--color1);
     color: var(--color5);
-    min-height: 20px;
-    font-size: 5vh;
-    align-content: center;
-    padding-top: 2%;
-    padding-right: 2%;
+    min-height: 40px;
+    font-size: calc(1.5em + 4vh);
+    align-self: center;
+    justify-self: stretch;
     text-align: right;
+    padding-right: 2%;
     white-space: nowrap;
     overflow-x: auto;
     overflow-y: hidden;
     font-weight: bold;
     border-radius: 20px;
     border-collapse: separate;
-    margin-bottom: 4%;
+    margin-bottom: 2vh;
+    max-width: 1000px;
 }
 .numpad{
     font-size: 5vh;
@@ -88,6 +99,7 @@ header .title{
     border-collapse: separate;
     color: var(--color1);
     background-color: var(--color5);
+    min-height: 30px;
 }
 .operation{
     font-size: 4vh;
@@ -96,6 +108,7 @@ header .title{
     margin: 2%;
     color: var(--color5);
     background-color: var(--color2);
+    min-height: 30px;
 }
 #enter{
     grid-area: enter;
@@ -152,49 +165,12 @@ header .title{
     grid-area: c;
 }
 footer{
+    width: 100%;
     display: flex;
     background-color:var(--color5);
     align-items: center;
     justify-content: center;
     grid-area: footer;
     font-size: calc(1vw + 1em);
-
-}
-
-
-@media only screen and (min-width: 1300px){
-    .page-wrap{
-        grid-template-columns: 20vw 60vw 20vw;
-        grid-template-areas:
-    
-        'header header header'
-        'spacer calc null'
-        'footer footer footer'    
-    }
-}
-
-@media only screen and (max-width: 1000px){
-    
-    .page-wrap{
-        display:grid;
-        grid-template-rows: 10vh 80vh 10vh;
-        grid-template-columns: 100vw;
-        grid-template-areas:
-        'header'
-        'calc'
-        'footer'
-    }
-
-    
-}
-@media screen and (orientation: landscape){
-    .page-wrap{
-        grid-template-rows: 10vh 80vh 10vh;
-        grid-template-columns: 20vw 70vw 10vw;
-        grid-template-areas:
-        'header header header'
-        'spacer calc null'
-        'footer footer footer'    
-    }
 
 }
