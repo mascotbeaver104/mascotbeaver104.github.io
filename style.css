@@ -23,7 +23,7 @@ body{
     grid-template-areas:
 
     'header header header'
-    'ad calc null'
+    'spacer calc null'
     'footer footer footer'    
 }
 
@@ -42,23 +42,7 @@ header .title{
     font-size: calc(1em + 3vh);
 }
 
-.ad{
-    grid-area: ad;
-    background-color: var(--color4);
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    justify-self: right;
-    word-wrap: normal;
-    max-width: 200px;
-    
-}
-.ad p{
-    position:relative;
-    word-wrap: normal;
-    font-size: 4vw;
 
-}
 
 .calc{
     padding: 5% 20% 5% 20%;
@@ -177,12 +161,6 @@ footer{
 
 }
 
-@media only screen and (min-width: 1000px){
-
-    .ad p{
-    font-size: 2.45em;
-    }
-}
 
 @media only screen and (min-width: 1300px){
     .page-wrap{
@@ -190,7 +168,7 @@ footer{
         grid-template-areas:
     
         'header header header'
-        'ad calc null'
+        'spacer calc null'
         'footer footer footer'    
     }
 }
@@ -199,24 +177,14 @@ footer{
     
     .page-wrap{
         display:grid;
-        grid-template-rows: 10vh 65vh 15vh 10vh;
+        grid-template-rows: 10vh 80vh 10vh;
         grid-template-columns: 100vw;
         grid-template-areas:
         'header'
         'calc'
-        'ad'
         'footer'
     }
-    .ad{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        justify-self: center;
-        word-wrap: normal;
-        max-width: 100%;
-        padding: 0% 10% 0 10%;
-        min-height: 50px;
-     }
+
     
 }
 @media screen and (orientation: landscape){
@@ -225,12 +193,8 @@ footer{
         grid-template-columns: 20vw 70vw 10vw;
         grid-template-areas:
         'header header header'
-        'ad calc null'
+        'spacer calc null'
         'footer footer footer'    
     }
-    @media screen and (max-height: 500px){
-        .ad p{
-            font-size: 5vh
-        }
-    }
+
 }
