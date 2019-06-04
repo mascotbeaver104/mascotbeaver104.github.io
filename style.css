@@ -95,7 +95,7 @@ header .title{
     font-size: 5vh;
     font-weight: bold;
     border-radius: 20%;
-    margin: 2%;
+    margin: 1.5%;
     border-collapse: separate;
     color: var(--color1);
     background-color: var(--color5);
@@ -105,7 +105,7 @@ header .title{
     font-size: 4vh;
     font-weight: bold;
     border-radius: 20%;
-    margin: 2%;
+    margin: 1.5%;
     color: var(--color5);
     background-color: var(--color2);
     min-height: 30px;
@@ -160,6 +160,8 @@ header .title{
 }
 #ac{
     grid-area: ac;
+    background-color: #553515;
+    color: var(--color1);
 }
 #c{
     grid-area: c;
@@ -173,4 +175,12 @@ footer{
     grid-area: footer;
     font-size: calc(1vw + 1em);
 
+}
+@media only screen and (min-width: 1000px){
+    .numpad{
+        margin: 1%;
+    }
+    .operation{
+        margin: 1%;
+    }
 }
