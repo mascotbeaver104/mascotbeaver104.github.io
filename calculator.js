@@ -80,10 +80,10 @@ function calculator(input){
         decimal=false;
     }
 
-
-
-
-    document.getElementById('display').innerHTML = disp;
+    const output = document.getElementById('display');
+    const maxScrollLeft = output.scrollWidth;
+    output.innerHTML = disp;
+    output.scrollLeft = maxScrollLeft;
 }
 
 document.getElementById('one').addEventListener('click', function(){calculator(1)});

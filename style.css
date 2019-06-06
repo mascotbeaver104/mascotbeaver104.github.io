@@ -88,7 +88,6 @@ header .title{
     padding-right: 2%;
     white-space: nowrap;
     overflow-x: auto;
-    direction: rtl;
     overflow-y: hidden;
     font-weight: bold;
     border-radius: 20px;
