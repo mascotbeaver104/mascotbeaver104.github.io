@@ -12,9 +12,16 @@ let operators = {
 }
 
 function calculator(input){
-    if(/[0-9]/.test(input) && accIn){
+    if(/[0-9]/.test(input)){
         if((inputArr.length == 1 && inputArr[0] == 0)||(inputArr.length-1 == opIndex+1 && inputArr[inputArr.length-1] == 0)){
           inputArr.pop();
+        }
+        if(accIn === false){
+            disp = '0';
+            inputArr = [];
+            accIn = true;
+            opIndex = -1;
+            decimal=false;
         }
         inputArr.push(input);
         disp = inputArr.join('');
