@@ -2,7 +2,7 @@ var disp= '0';
 let inputArr = [];
 let accIn = true;
 let opIndex = -1;
-decimal = false;
+let decimal = false;
 
 let operators = {
     '+': function(a, b){return Number(a)+Number(b)},
