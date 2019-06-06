@@ -13,6 +13,9 @@ let operators = {
 
 function calculator(input){
     if(/[0-9]/.test(input) && accIn){
+        if((inputArr.length == 1 && inputArr[0] == 0)||(inputArr.length-1 == opIndex+1 && inputArr[inputArr.length-1] == 0)){
+          inputArr.pop();
+        }
         inputArr.push(input);
         disp = inputArr.join('');
     }
@@ -22,26 +25,30 @@ function calculator(input){
         decimal = true;
     }
     if(/\+|\-|\*|\//.test(input)){
+      if(opIndex === inputArr.length-1){
+        inputArr.pop();
+        opIndex = -1;
+      }
         if(opIndex === -1 && inputArr.length > 0){
         opIndex = inputArr.length;
         inputArr.push(input);
         disp=inputArr.join('');
         accIn = true;
         decimal =false;
-        } else if(opIndex > -1 && inputArr.length-1 != opIndex){
+        } 
+        else if(opIndex > -1 && inputArr.length-1 != opIndex){
             disp = operators[inputArr[opIndex]](Number(inputArr.slice(0,opIndex).join('')), Number(inputArr.slice(opIndex+1).join('')));
             inputArr = String(disp).split('');
             opIndex = inputArr.length;
             inputArr.push(input);
             disp=inputArr.join('');
             decimal = false;
-;
         }
     }
     if(/enter/.test(input)){
         if(opIndex != 0 && inputArr.length-1 > opIndex){
             accIn = false;
-            disp = operators[inputArr[opIndex]](Number(inputArr.slice(0,opIndex).join('')), Number(inputArr.slice(opIndex+1).join('')));
+            disp = Math.round(operators[inputArr[opIndex]](Number(inputArr.slice(0,opIndex).join('')), Number(inputArr.slice(opIndex+1).join('')))*100000)/100000;
             inputArr = String(disp).split('');
             opIndex = -1;
         }
@@ -55,12 +62,10 @@ function calculator(input){
         }
     }else{
         input = 'allClear';
-        console.log('clear');
     }
 }
     
     if(/allClear/.test(input)){
-        console.log('allClear');
         disp = '0';
         inputArr = [];
         accIn = true;
@@ -71,7 +76,7 @@ function calculator(input){
 
 
 
-    document.getElementById('output').innerHTML = disp;
+    document.getElementById('display').innerHTML = disp;
 }
 
 document.getElementById('one').addEventListener('click', function(){calculator(1)});
@@ -88,8 +93,8 @@ document.getElementById('add').addEventListener('click', function(){calculator('
 document.getElementById('multiply').addEventListener('click', function(){calculator('*')});
 document.getElementById('divide').addEventListener('click', function(){calculator('/')});
 document.getElementById('subtract').addEventListener('click', function(){calculator('-')});
-document.getElementById('enter').addEventListener('click', function(){calculator('enter')});
+document.getElementById('equals').addEventListener('click', function(){calculator('enter')});
 document.getElementById('decimal').addEventListener('click', function(){calculator('.')});
 document.getElementById('c').addEventListener('click', function(){calculator('clear')});
-document.getElementById('ac').addEventListener('click', function(){calculator('allClear')});
-document.getElementById('output').innerHTML = disp;
+document.getElementById('clear').addEventListener('click', function(){calculator('allClear')});
+document.getElementById('display').innerHTML = disp;

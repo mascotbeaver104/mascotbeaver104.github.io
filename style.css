@@ -11,6 +11,9 @@
     --color6: #121418;
 }
 body{
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 400px;
     margin: 0;
     padding: 0;
     color: var(--color1);
@@ -18,8 +21,9 @@ body{
 }
 .page-wrap{
     display: grid;
+    min-height: 100vh;
     background-color: var(--color3);
-    grid-template-rows: 10vh 80vh 10vh;
+    grid-template-rows: 10% 80% 10%;
     grid-template-columns: 100vw;
     width: 100%;
     grid-template-areas:
@@ -42,7 +46,7 @@ header{
 header .title{
     font-weight: normal;
     margin: 0;
-    font-size: calc(1em + 3vh);
+    font-size: calc(2em + 1.5vh);
 }
 
 
@@ -52,9 +56,9 @@ header .title{
     justify-self: center;
     width: 85%;
     height: 90%;
+    min-height: 320px;
     margin: 0px;
     padding: 0px;
-    min-height: 150px;
     text-align: center;
     color: var(--color5);
     grid-area: calc;
@@ -92,7 +96,7 @@ header .title{
     max-width: 1000px;
 }
 .numpad{
-    font-size: 5vh;
+    font-size: calc(1.5em + 2vh);
     font-weight: bold;
     border-radius: 20%;
     margin: 1.5%;
@@ -102,7 +106,7 @@ header .title{
     min-height: 30px;
 }
 .operation{
-    font-size: 4vh;
+    font-size: calc(1.5em + 2vh);
     font-weight: bold;
     border-radius: 20%;
     margin: 1.5%;
@@ -110,7 +114,7 @@ header .title{
     background-color: var(--color2);
     min-height: 30px;
 }
-#enter{
+#equals{
     grid-area: enter;
 }
 #one{
@@ -158,7 +162,7 @@ header .title{
 #multiply{
     grid-area: multiply;
 }
-#ac{
+#clear{
     grid-area: ac;
     background-color: #553515;
     color: var(--color1);
@@ -174,6 +178,7 @@ footer{
     justify-content: center;
     grid-area: footer;
     font-size: calc(1vw + 1em);
+    min-height: 40px;
 
 }
 @media only screen and (min-width: 1000px){
