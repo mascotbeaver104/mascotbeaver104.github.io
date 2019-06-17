@@ -40,11 +40,7 @@ body{
     color: var(--color1);
     margin: 3vw;
 }
-@media only screen and (orientation: portrait){
-    #links{
-        flex-direction: column;
-    }
-}
+
 .demoPic{
     width: auto;
     align-self: center;
@@ -65,6 +61,14 @@ body{
     justify-content: center;
 }
 #contacts a{
-    margin-left: 3em;
-    margin-right: 3em;
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+@media only screen and (orientation: portrait){
+    #links{
+        flex-direction: column;
+    }
+    #contacts{
+    margin-top: 2.25em;
+    }
 }
