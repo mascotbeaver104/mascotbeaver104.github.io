@@ -427,10 +427,10 @@ function checkWin(){
         aceTwo.arr.length === 13 &&
         aceThree.arr.length == 13 &&
         aceFour.arr.length == 13){
-            updateAce(aceOne);
-            updateAce(aceTwo);
-            updateAce(aceThree);
-            updateAce(aceFour);
+            dispAce(aceOne);
+            dispAce(aceTwo);
+            dispAce(aceThree);
+            dispAce(aceFour);
             if(confirm('You Won!\n\n Start a new game?')){
                 deal();
             }else{
