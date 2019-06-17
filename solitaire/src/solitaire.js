@@ -53,6 +53,7 @@ class Ace extends Stack{
     }
 }
 
+var undrawAmount = 0;
 var stackOne = new Stack("stackOne");
 var stackTwo = new Stack("stackTwo");
 var stackThree = new Stack("stackThree");
@@ -233,16 +234,22 @@ function getColor(card){
     }
 
 }
-
+function isUndrawLegal(){
+  if(selected.home === drawn){
+    undrawLegal(false);
+  }
+}
 function isLegal(stack){
     let lastCard = stack.arr[stack.arr.length-1];
 
     if(stack.suit !== undefined){
         if(selected.arr.length === 1){
             if(stack.suit === 'unset' && selected.arr[0].value === 'ace'){
-                return true;
+              isUndrawLegal();
+              return true;
             }else if(selected.arr[0].suit === stack.suit && selected.arr[0].numValue === (lastCard.numValue+1)){
-            return true;
+              isUndrawLegal();
+              return true;
             } 
         }
 
@@ -251,6 +258,7 @@ function isLegal(stack){
 
     if(stack.arr.length === 0){
         if(selected.arr[0].value === 'king'){
+            isUndrawLegal();
             return true;
         } else{
             return false;
@@ -259,6 +267,7 @@ function isLegal(stack){
 
     if(selected.arr[0].numValue === lastCard.numValue-1
         && getColor(selected.arr[0]) !== getColor(lastCard)){
+            isUndrawLegal();
             return true;
         } else{
             return false;
@@ -393,6 +402,8 @@ function dispAce(stack){
             }
 
         } else if(isLegal(stack)===true){
+            if(selected.home === drawn){
+            }
             stack.arr.push(selected.arr.pop());
             dispStack(selected.home);
             selected.arr.home = 'undefined';
@@ -416,6 +427,10 @@ function checkWin(){
         aceTwo.arr.length === 13 &&
         aceThree.arr.length == 13 &&
         aceFour.arr.length == 13){
+            updateAce(aceOne);
+            updateAce(aceTwo);
+            updateAce(aceThree);
+            updateAce(aceFour);
             if(confirm('You Won!\n\n Start a new game?')){
                 deal();
             }else{
@@ -467,19 +482,46 @@ function updateAll() { //refreshes all HTML elements,
 
 function draw(){
     if(deck.length === 0){
+        undrawLegal(false);
         deck = drawn.arr;
         drawn.arr = [];
         dispDeck();
         dispCards();
         return;
     }
+    undrawAmount = 0;
     for(let i=0; i<3; i++){
         if(deck.length>0){
+            undrawAmount +=1
             drawn.arr.unshift(deck.pop());
         }
     }
+    undrawLegal(true);
     dispDeck();
     dispCards();
+}
+
+function undrawLegal(legal){
+  let btn = document.getElementById('undraw');
+  if(legal === true){
+    btn.style.opacity = 1;
+    btn.addEventListener('click', undraw);
+  }else if(legal === false || drawn.arr.length ===0){
+    btn.style.opacity = 0.4;
+    console.log(false);
+    btn.removeEventListener('click', undraw);
+  }
+}
+
+function undraw(){
+  console.log('undraw');
+    for(let i=0; i<3; i++){
+      if(i<undrawAmount){
+        deck.push(drawn.arr.shift());
+      }
+    }
+    dispCards();
+    dispDeck();
 }
 
 document.getElementById('ng').onclick = function(){deal()};
