@@ -1,0 +1,30 @@
+<svg width="167.0869141" height="242.66699219999998" xmlns="http://www.w3.org/2000/svg">
+ <metadata id="metadata43">image/svg+xml</metadata>
+ <defs>
+  <filter height="200%" width="200%" y="-50%" x="-50%" id="Layer_x0020_1_blur">
+   <feGaussianBlur stdDeviation="0" in="SourceGraphic"/>
+  </filter>
+ </defs>
+ <g>
+  <title>background</title>
+  <rect x="-1" y="-1" width="169.086914" height="244.666992" id="canvas_background" fill="none"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <g stroke-opacity="0.45" filter="url(#Layer_x0020_1_blur)" stroke="#000000" fill-opacity="0.19" id="Layer_x0020_1" stroke-miterlimit="4" clip-rule="nonzero" fill-rule="nonzero">
+   <path stroke="#000000" d="m166.58691,236.081421c0,3.789929 -3.08691,6.892015 -6.87109,6.892015l-152.85498,0c-3.7749,0 -6.86084,-3.102086 -6.86084,-6.892015l0,-229.188423c0,-3.789929 3.08594,-6.892998 6.86084,-6.892998l152.85498,0c3.78418,0 6.87109,3.103069 6.87109,6.892998l0,229.188423z" id="path5" stroke-width="2" fill="#ffffff"/>
+   <g stroke="null" id="g7">
+    <g stroke="null" id="g9"/>
+   </g>
+   <g stroke="null" id="g15"/>
+   <g stroke="null" id="g19"/>
+   <g stroke="null" id="g23">
+    <g stroke="null" id="g25"/>
+   </g>
+   <g stroke="null" id="g31">
+    <g stroke="null" id="g33"/>
+   </g>
+  </g>
+  <ellipse id="svg_2" cy="171.041062" cx="147.172367" fill-opacity="0.19" stroke-opacity="0.45" stroke-width="2" stroke="#000000" fill="#ffffff"/>
+ </g>
+</svg>
