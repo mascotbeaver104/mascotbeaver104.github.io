@@ -26,6 +26,7 @@ body{
 }
 #links{
     display: flex;
+    flex-direction: row;
     height: 50vh;
     max-height: 50vh;
     justify-content: center;
@@ -39,10 +40,15 @@ body{
     color: var(--color1);
     margin: 3vw;
 }
+@media only screen and (orientation: portrait){
+    #links{
+        flex-direction: column;
+    }
+}
 .demoPic{
     width: auto;
     align-self: center;
-    height: auto;
+    height: 100%;
     max-height: 30vh;
     border-radius: 15%;
     border: 5px solid var(--color4);
