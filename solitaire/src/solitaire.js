@@ -28,16 +28,13 @@
 
     addBack(): returns selected cards back to their array.
 */
-
 var deck = [];
-
 var selected = {
     arr: [],
     home: stackOne
 };
 var cardBack = "./src/images/cards/card_back.svg";
 var cardBlank = './src/images/cards/blank.svg';
-
 class Stack {
   constructor(stackName) {
     this.name = stackName;
@@ -45,14 +42,12 @@ class Stack {
     this.arr = [];
   }
 }
-
 class Ace extends Stack{
     constructor(stackName){
         super(stackName);
     this.suit = 'unset';
     }
 }
-
 var undrawAmount = 0;
 var stackOne = new Stack("stackOne");
 var stackTwo = new Stack("stackTwo");
@@ -66,7 +61,6 @@ var aceTwo = new Ace('aceTwo');
 var aceThree = new Ace('aceThree');
 var aceFour = new Ace('aceFour');
 var drawn = new Stack('cards');
-
 class Card {
   constructor(value, suit, numValue) {
     this.value = value;
@@ -76,7 +70,6 @@ class Card {
     this.imgSrc = "./src/images/cards/" + String(value) + "_of_" + suit + ".svg";
   }
 }
-
 function createDeck() {
   //creates an array of 52 shuffled unique card objects
   deck = [];
@@ -94,7 +87,6 @@ function createDeck() {
   aceThree.arr = [];
   aceFour.arr = [];
   updateAll();
-
   let tempDeck = [];
   let rand = 0;
   for (let i = 1; i <= 52; i++) {
@@ -105,7 +97,6 @@ function createDeck() {
     deck.push(tempDeck[rand]);
     tempDeck.splice(rand, 1);
   }
-
   function createCards() {
     //generates 52 card objects;
     let cardVal = 0;
@@ -139,7 +130,6 @@ function createDeck() {
   deck = drawn.arr;
   drawn.arr = [];
 }
-
 function addBack(stack, array){
     if(stack === drawn){
         stack.arr.splice(0, 0, ...array);
@@ -147,7 +137,6 @@ function addBack(stack, array){
         stack.arr = stack.arr.concat(array);
     }
 }
-
 function dispStack(stack) {
   //takes stack object and displays the card array
   if(stack === drawn){
@@ -158,7 +147,6 @@ function dispStack(stack) {
         dispAce(stack);
         return;
   }
-
   let stackEnd = stack.arr.length - 1;
   let spaceIndex = 0;
   stack.elem.innerHTML = "";
@@ -167,21 +155,18 @@ function dispStack(stack) {
     return;
   }
   if (stack.arr[stackEnd].faceUp === false) {
-    stack.arr[stackEnd].faceUp = true;
-    
+    stack.arr[stackEnd].faceUp = true;  
   }
-
   for (let i = 0; i < stack.arr.length; i++) {
     let pic = document.createElement("img");
     stack.elem.appendChild(pic);
     pic.className = "cardPic";
     pic.style.zIndex = String(i);
-    pic.style.marginTop = spaceIndex + 'em';
+    pic.style.marginTop = spaceIndex*0.8 + 'em';
     if (stack.arr[i].faceUp) {
       pic.setAttribute("src", stack.arr[i].imgSrc);
       spaceIndex += 1.5;
       pic.addEventListener('click', function(){
-
         if(selected.arr.length === 0){
             let len = stack.arr.length;
                 for(let z=i; z<len; z++){
@@ -193,7 +178,6 @@ function dispStack(stack) {
             pic.style.borderRadius = '8%';
             pic.style.alignSelf = 'center';
              return;
-
         }else if(i === stack.arr.length-1){
           if(isLegal(stack)===true){
               stack.arr = stack.arr.concat(selected.arr);
@@ -217,7 +201,6 @@ function dispStack(stack) {
         selected.arr = [];
         return;
       }
-
     });
     } else {
       pic.setAttribute("src", cardBack);
@@ -225,7 +208,6 @@ function dispStack(stack) {
     }
   }
 }
-
 function getColor(card){
     if(card.suit === 'clubs' || card.suit === 'spades'){
         return 'black';
@@ -235,13 +217,12 @@ function getColor(card){
 
 }
 function isUndrawLegal(){
-  if(selected.home === drawn){
+  if(selected.home === drawn || drawn.arr.length === 0){
     undrawLegal(false);
   }
 }
 function isLegal(stack){
     let lastCard = stack.arr[stack.arr.length-1];
-
     if(stack.suit !== undefined){
         if(selected.arr.length === 1){
             if(stack.suit === 'unset' && selected.arr[0].value === 'ace'){
@@ -252,10 +233,8 @@ function isLegal(stack){
               return true;
             } 
         }
-
          return false;
     }   else{
-
     if(stack.arr.length === 0){
         if(selected.arr[0].value === 'king'){
             isUndrawLegal();
@@ -264,7 +243,6 @@ function isLegal(stack){
             return false;
         }
     }
-
     if(selected.arr[0].numValue === lastCard.numValue-1
         && getColor(selected.arr[0]) !== getColor(lastCard)){
             isUndrawLegal();
@@ -274,11 +252,8 @@ function isLegal(stack){
         }
     }
 }
-
-
 function deal() {
   createDeck();
-
   for (let i = 7; i > 0; i--) {
     switch (i) {
       case 7:
@@ -290,7 +265,6 @@ function deal() {
       case 5:
         stackThree.arr.push(deck.pop());
         stackThree.arr[7-i].faceUp = false;
-
       case 4:
         stackFour.arr.push(deck.pop());
         stackFour.arr[7-i].faceUp = false;
@@ -308,11 +282,10 @@ function deal() {
         break;
     }
   }
-
   updateAll();
+  undrawLegal(false);
   dispDeck();
 }
-
 function dispDeck() { //displays the deck
   document.getElementById("deck").innerHTML = "";
   let foldOut = deck.length;
@@ -335,7 +308,6 @@ function dispDeck() { //displays the deck
     pic.setAttribute("src", "./src/images/cards/recycle.svg");
   }
 }
-
 function dispCards(){ //displays the drawn cards
     let cardStack = document.getElementById('cards');
     cardStack.innerHTML = '';
@@ -370,7 +342,6 @@ function dispCards(){ //displays the drawn cards
         }
     }
 }
-
 function dispAce(stack){
     let topCard = stack.arr[stack.arr.length-1];
     stack.elem.innerHTML = '';
@@ -421,16 +392,11 @@ function dispAce(stack){
     checkWin();
     }
 }
-
 function checkWin(){
     if(aceOne.arr.length === 13 &&
         aceTwo.arr.length === 13 &&
         aceThree.arr.length == 13 &&
         aceFour.arr.length == 13){
-            dispAce(aceOne);
-            dispAce(aceTwo);
-            dispAce(aceThree);
-            dispAce(aceFour);
             if(confirm('You Won!\n\n Start a new game?')){
                 deal();
             }else{
@@ -438,7 +404,6 @@ function checkWin(){
             }
         }
 }
-
 function isBlank(stack){
     let blank = document.createElement("img");
     blank.setAttribute('src', cardBlank);
@@ -463,7 +428,6 @@ function isBlank(stack){
        }
     });
 }
-
 function updateAll() { //refreshes all HTML elements,
   dispStack(stackOne); // so they display their current array
   dispStack(stackTwo);
@@ -479,7 +443,6 @@ function updateAll() { //refreshes all HTML elements,
   dispCards();
   dispDeck();
 }
-
 function draw(){
     if(deck.length === 0){
         undrawLegal(false);
@@ -500,7 +463,6 @@ function draw(){
     dispDeck();
     dispCards();
 }
-
 function undrawLegal(legal){
   let btn = document.getElementById('undraw');
   if(legal === true){
@@ -511,17 +473,19 @@ function undrawLegal(legal){
     btn.removeEventListener('click', undraw);
   }
 }
-
 function undraw(){
     for(let i=0; i<3; i++){
       if(i<undrawAmount){
         deck.push(drawn.arr.shift());
       }
     }
+    if(drawn.arr.length===0){
+      undrawLegal(false);
+    }
     dispCards();
     dispDeck();
-}
 
+}
 document.getElementById('ng').onclick = function(){deal()};
 document.getElementById('deck').onclick = function(){draw()};
 window.onload = function() {
