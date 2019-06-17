@@ -508,13 +508,11 @@ function undrawLegal(legal){
     btn.addEventListener('click', undraw);
   }else if(legal === false || drawn.arr.length ===0){
     btn.style.opacity = 0.4;
-    console.log(false);
     btn.removeEventListener('click', undraw);
   }
 }
 
 function undraw(){
-  console.log('undraw');
     for(let i=0; i<3; i++){
       if(i<undrawAmount){
         deck.push(drawn.arr.shift());
