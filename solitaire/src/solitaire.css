@@ -13,7 +13,6 @@
 body {
   height: 100%;
   width: 100%;
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,100 +23,29 @@ body {
   margin: 0px;
   overflow-x: hidden;
 }
-#header{
-  width: 100%;
-  min-width: 31.25em;
-}
-#header h1{
-  align-self: center;
-  text-align: center;
-  width: 100%;
-  min-width: 21em;
 
-}
-#instru{
-  min-width: 31.25em;
-  align-self: center;
-  text-align: center;
-  width: 100%;
-  justify-self: center;
-  position: relative;
-  bottom: 1em;
-}
 #wrapper {
   text-align: center;
   width: 90vw;
+  height: 80vh;
+  min-height: 480px;
   margin: 0px 5vw 0px 5vw;
-  min-width: 37.5em;
-  min-height: 30em;
+  min-width: 512px;
   background-image: radial-gradient(#0a6c03,#063d02);
   position: relative;
-  padding: 1em;
   border-radius: 10%;
   max-width:45em;
   display: grid;
   align-content: flex-start;
   justify-content: center;
-  grid-template-columns: 5.2em 5.2em 5.2em 5.2em 5.2em 5.2em 5.2em;
-  grid-template-rows: max-content;
+  grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
+  grid-template-rows: auto max-content;
   grid-template-areas:
     "deck cards cards aceOne aceTwo aceThree aceFour"
     "stackOne stackTwo stackThree stackFour stackFive stackSix stackSeven";
 
 }
 
-
-
-.stack {
-  padding: 0px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 7.5em;
-  width: 4.5em;
-  min-width: 50px;
-  height: max-content;
-  min-height: 10vh;
-  margin: 30% 0.5vw 0vw 0.5vw;
-}
-.cardPic {
-  width: 4.5em;
-  max-width: 7.5em;
-  position: absolute;
-  padding: 0px;
-  align-self: center;
-}
-.firstPic {
-  top: 0px;
-  margin-top: 0px;
-}
-
-#deck {
-    grid-area: deck;
-    position: relative;
-    max-width: 7.5em;
-    border-right-style: none;
-    border-top-right-radius: 0%;
-  }
-
-#cards {
-  grid-area: cards;
-  position: relative;
-  display: flex;
-  align-content: flex-start;
-  justify-items: flex-start;
-    height: 6em;
-  margin-left: 1.6em;
-  margin-right: 1.9em;
-
-}
-.ace{
-  display: flex;
-  align-content: center;
-  margin-left: 1px;
-  padding-top: 7px;
-}
 #spacer {
   grid-area: spacer;
 }
@@ -157,23 +85,91 @@ body {
 #aceFour {
   grid-area: aceFour;
 }
+
+
+
+.stack {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width:  10vw;
+  max-width: 5em;
+  min-width: 50px;
+  height: max-content;
+  min-height: 10vh;
+  margin: 30% 0.5vw 0vw 3vw;
+}
+.cardPic {
+  width: 10vw;
+  position: absolute;
+  max-width: 5em;
+  padding: 0px;
+  align-self: center;
+}
+.firstPic {
+  top: 0px;
+  margin-top: 0px;
+}
+
+#deck {
+    margin-left: 3vw;
+    margin-top: 3vh;
+    grid-area: deck;
+    position: relative;
+    max-width: 5em;
+    max-height: 7.26125em;
+    width: 10vw;
+    height: 14.5225vw;
+    border-right-style: none;
+    border-top-right-radius: 0%;
+  }
+
+#cards {
+  grid-area: cards;
+  margin-left: 6vw;
+  margin-top: 3vh;
+  position: relative;
+  display: flex;
+  align-content: flex-start;
+  justify-items: flex-start;
+  height: 14.5225vw;
+  width: calc(10vw + 2em);
+  max-width: 7em;
+  max-height: 7.26125em;
+
+}
+.ace{
+  display: flex;
+  position: relative;
+  align-content: center;
+  margin: 3vh 0vw 0px 4vw;
+  width: 10vw;
+  height: 14.5225vw;
+  max-width: 5em;
+  max-height: 7.26125em;
+}
+
+#buttons{
+  display: flex;
+  width: 90vw;
+  max-width: 45em;
+  justify-content: space-around;
+}
+
 #ng{
     position: relative;
-    align-self: center;
-    left: calc(12em + 8vw);
+    left: 5vw;
     font-family: "viga", sans-serif;
     border-radius: 10%;
     color: var(--color5);
     background-color: var(--color1);
-    margin-top: 5px;
     size: 10vw, 3vh;
 }
 #undraw{
-  opacity: 0.4;
   position: relative;
-  align-self: center;
-  right: calc(10em + 8vw);
-  bottom: 1.75em;
+  right: 5vw;
+  opacity: 0.4;
   font-family: "viga", sans-serif;
   color: var(--color5);
   background-color: var(--color1);
@@ -194,17 +190,4 @@ body {
     border-bottom-left-radius: 0%;
     border-bottom-right-radius: 0%;
     margin-left: 0.5em;
-}
-
-@media only screen and (max-width: 37.25em){
-    #wrapper{
-    align-self: flex-start;
-    margin: 0vw;
-    }
-  body{
-    overflow-x: scroll;
-  }
-    #ng{
-        left: calc(22em - 9vw);
-    }
 }
