@@ -31,7 +31,8 @@
 var deck = [];
 var selected = {
     arr: [],
-    home: stackOne
+    home: stackOne,
+    dblclick: false
 };
 var cardBack = "./src/images/cards/card_back.svg";
 var cardBlank = './src/images/cards/blank.svg';
@@ -61,6 +62,7 @@ var aceTwo = new Ace('aceTwo');
 var aceThree = new Ace('aceThree');
 var aceFour = new Ace('aceFour');
 var drawn = new Stack('cards');
+
 class Card {
   constructor(value, suit, numValue) {
     this.value = value;
@@ -174,7 +176,7 @@ function dispStack(stack) {
     if (stack.arr[i].faceUp) {
       pic.setAttribute("src", stack.arr[i].imgSrc);
       spaceIndex += 1.5;
-      pic.addEventListener('click', function(){
+     pic.addEventListener('click', function(){
         if(selected.arr.length === 0){
             let len = stack.arr.length;
                 for(let z=i; z<len; z++){
@@ -190,7 +192,6 @@ function dispStack(stack) {
           if(isLegal(stack)===true){
               stack.arr = stack.arr.concat(selected.arr);
               dispStack(stack);
-              dispStack(stack);
               selected.arr = [];
               dispStack(selected.home);
               selected.home = undefined;
@@ -201,7 +202,7 @@ function dispStack(stack) {
             selected.home = undefined;
             selected.arr = [];
             return;
-          }
+          }    
       } else{
         addBack(selected.home, selected.arr);
         dispStack(selected.home);
@@ -210,12 +211,49 @@ function dispStack(stack) {
         return;
       }
     });
+  pic.addEventListener('dblclick', function(){
+    if(selected.arr.length === 0){
+      let len = stack.arr.length;
+          for(let z=i; z<len; z++){
+              selected.arr.unshift(stack.arr.pop());
+          }
+      selected.home = stack;
+      let found = findLegal(stack);
+      if(found !== false){
+        console.log(found.arr);
+        found.arr.push(...selected.arr);
+        console.log(found.arr);
+        dispStack(found);
+        dispStack(stack);
+        selected.arr =[];
+        selected.home = undefined;
+      }
+        } else{
+          addBack(selected.home, selected.arr);
+          dispStack(selected.home);
+          selected.home = undefined;
+          selected.arr = [];
+          return;
+        }
+    
+  });
     } else {
       pic.setAttribute("src", cardBack);
       spaceIndex += 0.5;
     }
   }
 }
+
+function findLegal(stack){
+  var stackArr = [aceOne, aceTwo, aceThree, aceFour, stackOne, stackTwo, stackThree, stackFour, stackFive, stackSix, stackSeven];
+  for(let i=0; i<stackArr.length; i++){
+    if(isLegal(stackArr[i]) && stackArr[i] !== stack){
+      return stackArr[i];
+    }
+  }
+  return false;
+}
+
 function getColor(card){
     if(card.suit === 'clubs' || card.suit === 'spades'){
         return 'black';
@@ -345,6 +383,28 @@ function dispCards(){ //displays the drawn cards
                     }
 
                 });
+                pic.addEventListener('dblclick', function(){
+                  if(selected.arr.length === 0){
+                    selected.arr.push(drawn.arr.shift());
+                    selected.home = drawn;
+                    let found = findLegal(drawn);
+                    if(found !== false){
+                      found.arr.push(...selected.arr);
+                      dispStack(found);
+                      dispCards();
+                      selected.arr =[];
+                      selected.home = undefined;
+                    }
+                      } else{
+                        addBack(selected.home, selected.arr);
+                        dispStack(selected.home);
+                        selected.home = undefined;
+                        selected.arr = [];
+                        return;
+                      }
+                  
+                });
+              
             }
         }
     }

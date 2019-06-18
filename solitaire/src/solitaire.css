@@ -239,3 +239,13 @@ body {
     right: 17vw;
   }
 }
+@media only screen and (max-width: 325px){
+  #cards{
+    right: 19vw;
+  }
+}
+@media only screen and (max-width: 325px){
+  #cards{
+    right: 21vw;
+  }
+}
