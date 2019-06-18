@@ -208,6 +208,8 @@ body {
   text-align: center;
   align-self: center;
   overflow-wrap: normal;
+  width: 70%;
+  max-width: 800px;
 }
 @media only screen and (max-width: 620px){
   #cards{
