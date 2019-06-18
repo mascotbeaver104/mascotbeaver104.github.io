@@ -358,6 +358,7 @@ function dispDeck() { //displays the deck
     pic.className = "cardPic";
     pic.style.left = '0px';
     pic.setAttribute("src", "./src/images/cards/recycle.svg");
+    pic.style.zIndex = 5;
   }
 }
 function dispCards(){ //displays the drawn cards
