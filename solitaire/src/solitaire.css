@@ -19,44 +19,57 @@ body {
   justify-content: center;
   color: var(--color1);
   background-color: var(--color5);
-    padding: 0px;
   margin: 0px;
-  overflow-x: auto;
+  padding: 0px;
 }
 
 #gradient{
   
   background-image: radial-gradient(#0a6c03,#063d02);
   border-radius: 10%;
-  overflow-y: hidden;
-}
-
-#wrapper {
-  text-align: center;
-  align-self: center;
-  padding-left: 3vw;
-  padding-right: 3vw;
-  width: 90vw;
-  height: 80vh;
+  width: 99vw;
+  height: 70vw;
+  max-height: 70vh;
+  max-width: 800px;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   position: relative;
-  border-radius: 10%;
-  max-width: 50em;
-  max-height: 50em;
-  display: grid;
+  overflow: hidden;
+}
+
+.row {
+  position: relative;
+  max-width: 800px;
   align-content: flex-start;
-  grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: auto max-content;
+  text-align: center;
+  justify-content: center;
+}
+#rowOne{
+  width: 80%;
+  height: 15%;
+  max-height: 14vw;
+  justify-content: center;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 15% 25% 15% 15% 15% 15%;
   grid-template-areas:
-    "deck cards cards aceOne aceTwo aceThree aceFour"
-    "stackOne stackTwo stackThree stackFour stackFive stackSix stackSeven";
-
+  'deck cards aceOne aceTwo aceThree aceFour';
 }
+#rowTwo{
+  display: grid;
+  position: relative;
+  justify-self: stretch;
+  height: 75%;
+  margin-top: 7%;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-areas:
+  "stackOne stackTwo stackThree stackFour stackFive stackSix stackSeven";
+  width: 95%;
 
-#spacer {
-  grid-area: spacer;
-}
-#empty {
-  grid-area: empty;
+
 }
 #stackOne {
   grid-area: stackOne;
@@ -97,20 +110,19 @@ body {
 .stack {
   position: relative;
   display: flex;
+  justify-self: center;
   flex-direction: column;
-  align-items: center;
-  width:  1fr;
-  max-width: 6em;
-  min-width: 50px;
-  max-height: 1fr;
-  height: 10vh;
-  margin: 30% 0vw 0vw 0vw;
+  align-items: flex-start;
+  width:  10.5vw;
+  max-width: 80px;
+  max-height: 116.18px;
+  height: 10vw;
 }
 .cardPic {
   width: 10.5vw;
   position: absolute;
-  max-width: 6em;
-  max-height: 8.7135em;
+  max-width: 80px;
+  max-height: 116.18px;
   padding: 0px;
   align-self: center;
 }
@@ -120,28 +132,22 @@ body {
 }
 
 #deck {
-
-    margin-top: 2vh;
     grid-area: deck;
     position: relative;
-    max-width: 6em;
-    max-height: 8.7135em;
-    width: 1fr;
-    height: 14.5225vw;
-    border-right-style: none;
-    border-top-right-radius: 0%;
   }
+@media only screen and(min-width: 1200px){
+  #deck{
+    margin-left: 150px;
+  }
+}
 
 #cards {
   grid-area: cards;
   position: relative;
   display: flex;
-  align-content: flex-start;
-  width: calc(10.5vw + 2em);
-  max-width: 8em;
-  max-height: 1fr;
-  height: 1fr;
-  margin: 2vh 2.5vw 0vw 5vw;
+  flex-direction: row-reverse;
+  min-width: 120px;
+  max-width: 14.2857142857%;
 
 }
 .ace{
@@ -149,9 +155,8 @@ body {
   position: relative;
   flex-direction: column;
   align-items: flex-start;
-  margin: 2vh 0vw 0px 0vw;
   width: 10.5vw;
-  max-width: 6em;
+  max-width: 80px;
   height: 1fr;
 
 }
@@ -159,8 +164,7 @@ body {
 #buttons{
   display: flex;
   width: 100%;
-
-  justify-content: center;
+  min-height: 2em;
 
 }
 
@@ -172,7 +176,6 @@ body {
     color: var(--color4);
     background-color: var(--color1);
     width: 100%;
-    height: 7vh;
 }
 #undraw{
   font-weight: bold;
@@ -184,11 +187,10 @@ body {
   background-color: var(--color1);
 
   width: 100%;
-  height: 7vh;
 }
 
 .bottomless{
-    border: 5px solid var(--color5);
+    border: 3px solid var(--color5);
     border-radius: 8%;
     border-bottom-style: none;
     border-bottom-left-radius: 0%;
@@ -202,38 +204,38 @@ body {
     border-bottom-right-radius: 0%;
     margin-left: 0.5rem;
 }
-/*
-@media only screen and (orientation: landscape){
-
-  #wrapper {
-    text-align: center;
-    align-self: center;
-    padding-left: 3vw;
-    padding-right: 3vw;
-    width: 90vw;
-    height: 80vh;
-    min-height: 480px;
-    min-width: 512px;
-    position: relative;
-    border-radius: 10%;
-    max-width:70rem;
-    max-height: 40rem;
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(6, 1fr);
-    grid-template-areas:
-      "deck stackOne stackTwo stackThree stackFour stackFive stackSix stackSeven"
-      "cards stackOne stackTwo stackThree stackFour stackFive stackSix stackSeven"
-      "aceOne stackOne stackTwo stackThree stackFour stackFive stackSix stackSeven"
-      "aceTwo stackOne stackTwo stackThree stackFour stackFive stackSix stackSeven"
-      "aceThree stackOne stackTwo stackThree stackFour stackFive stackSix stackSeven"
-      "aceFour stackOne stackTwo stackThree stackFour stackFive stackSix stackSeven";
-  }
-
+#instru{
+  text-align: center;
+  align-self: center;
+  overflow-wrap: normal;
+}
+@media only screen and (max-width: 620px){
   #cards{
-    margin: 0px;
+    right: 4vw;
   }
-  .ace{
-    margin-top: 0px;
+}
+@media only screen and (max-width: 510px){
+  #cards{
+    right: 8vw;
+  }
+}
+@media only screen and (max-width: 440px){
+  #cards{
+    right: 11vw;
+  }
+}
+@media only screen and (max-width: 400px){
+  #cards{
+    right: 13vw;
+  }
+}
+@media only screen and (max-width: 370px){
+  #cards{
+    right: 15vw;
+  }
+}
+@media only screen and (max-width: 345px){
+  #cards{
+    right: 17vw;
   }
 }

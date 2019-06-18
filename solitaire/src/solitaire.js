@@ -137,6 +137,14 @@ function addBack(stack, array){
         stack.arr = stack.arr.concat(array);
     }
 }
+function isZero(num){
+  if(num === 0){
+    return 0;
+  }
+  else{
+    return 1;
+  }
+}
 function dispStack(stack) {
   //takes stack object and displays the card array
   if(stack === drawn){
@@ -162,7 +170,7 @@ function dispStack(stack) {
     stack.elem.appendChild(pic);
     pic.className = "cardPic";
     pic.style.zIndex = String(i);
-    pic.style.marginTop = spaceIndex*0.8 + 'em';
+    pic.style.marginTop = spaceIndex*15 + '%';
     if (stack.arr[i].faceUp) {
       pic.setAttribute("src", stack.arr[i].imgSrc);
       spaceIndex += 1.5;
@@ -297,7 +305,7 @@ function dispDeck() { //displays the deck
     document.getElementById("deck").appendChild(pic);
     pic.className = "cardPic";
     pic.style.zIndex = String(i);
-    pic.style.left = i*.5 + "em";
+    pic.style.left = i*.5 + "vw";
     pic.setAttribute("src", "./src/images/cards/card_back.svg");
   }
   if(foldOut === 0){
@@ -318,7 +326,7 @@ function dispCards(){ //displays the drawn cards
             pic.setAttribute("src", drawn.arr[i].imgSrc);
             pic.className = 'cardPic';
             pic.style.zIndex = String(3-i);
-            pic.style.right = i*1 + 'em';
+            pic.style.right = i*10 + '%';
             pic.style.top = '0px';
             if(i===0){
                 pic.addEventListener('click', function(){
@@ -327,7 +335,6 @@ function dispCards(){ //displays the drawn cards
                         selected.arr.push(drawn.arr.shift());
                         pic.style.border = '5px solid gold';
                         pic.style.borderRadius = '8%';
-                        pic.style.alignSelf = 'center';
                         selected.home = drawn;
                     }else{
                         addBack(selected.home, selected.arr);
@@ -486,7 +493,11 @@ function undraw(){
     dispDeck();
 
 }
-document.getElementById('ng').onclick = function(){deal()};
+document.getElementById('ng').onclick = function(){
+  if(confirm('Start a new game?')){
+    deal();
+  }
+  };
 document.getElementById('deck').onclick = function(){draw()};
 window.onload = function() {
     deal();
