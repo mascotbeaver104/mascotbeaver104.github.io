@@ -227,6 +227,12 @@ function dispStack(stack) {
         dispStack(stack);
         selected.arr =[];
         selected.home = undefined;
+      }else{
+        addBack(selected.home, selected.arr);
+        dispStack(selected.home);
+        selected.home = undefined;
+        selected.arr = [];
+        return;
       }
         } else{
           addBack(selected.home, selected.arr);
@@ -394,6 +400,12 @@ function dispCards(){ //displays the drawn cards
                       dispCards();
                       selected.arr =[];
                       selected.home = undefined;
+                    } else{
+                      addBack(selected.home, selected.arr);
+                      dispStack(selected.home);
+                      selected.home = undefined;
+                      selected.arr = [];
+                      return;
                     }
                       } else{
                         addBack(selected.home, selected.arr);
