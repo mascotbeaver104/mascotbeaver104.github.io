@@ -64,9 +64,6 @@ body{
     margin-left: 5vw;
     margin-right: 5vw;
 }
-#closer{
-    margin: 0px;
-}
 @media only screen and (orientation: portrait){
     #links{
         flex-direction: column;
