@@ -566,10 +566,7 @@ function undraw(){
     dispDeck();
 
 }
-document.getElementById('ng').onclick = function(){
-  if(confirm('Start a new game?')){
-    deal();
-  }
+document.getElementById('ng').onclick = function(){deal()};
   };
 document.getElementById('deck').onclick = function(){draw()};
 window.onload = function() {
