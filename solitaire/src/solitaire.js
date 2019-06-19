@@ -567,7 +567,6 @@ function undraw(){
 
 }
 document.getElementById('ng').onclick = function(){deal()};
-  };
 document.getElementById('deck').onclick = function(){draw()};
 window.onload = function() {
     deal();
