@@ -348,7 +348,7 @@ function dispDeck() { //displays the deck
     let pic = document.createElement("img");
     document.getElementById("deck").appendChild(pic);
     pic.className = "cardPic";
-    pic.style.zIndex = String(i);
+    pic.style.zIndex = String(4 + i);
     pic.style.left = i*.5 + "vw";
     pic.setAttribute("src", "./src/images/cards/card_back.svg");
   }
@@ -566,7 +566,11 @@ function undraw(){
     dispDeck();
 
 }
-document.getElementById('ng').onclick = function(){deal()};
+document.getElementById('ng').onclick = function(){
+  if(confirm('Start a new game?')){
+    deal();
+  }
+  };
 document.getElementById('deck').onclick = function(){draw()};
 window.onload = function() {
     deal();
