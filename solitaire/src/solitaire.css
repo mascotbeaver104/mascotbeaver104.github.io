@@ -48,22 +48,19 @@ body {
   justify-content: center;
 }
 #rowOne{
-  width: 80%;
+  width: 90%;
   height: 15%;
+  margin-top: 1.5%;
   max-height: 14vw;
-  justify-content: center;
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 15% 25% 15% 15% 15% 15%;
-  grid-template-areas:
-  'deck cards aceOne aceTwo aceThree aceFour';
+  justify-content: space-around;
+  display: flex;
 }
 #rowTwo{
   display: grid;
   position: relative;
   justify-self: stretch;
   height: 75%;
-  margin-top: 7%;
+  margin-top: 10%;
   grid-template-columns: repeat(7, 1fr);
   grid-template-areas:
   "stackOne stackTwo stackThree stackFour stackFive stackSix stackSeven";
@@ -71,55 +68,25 @@ body {
 
 
 }
-#stackOne {
-  grid-area: stackOne;
-}
-#stackTwo {
-  grid-area: stackTwo;
-}
-#stackThree {
-  grid-area: stackThree;
-}
-#stackFour {
-  grid-area: stackFour;
-}
-#stackFive {
-  grid-area: stackFive;
-}
-#stackSix {
-  grid-area: stackSix;
-}
-#stackSeven {
-  grid-area: stackSeven;
-}
-#aceOne {
-  grid-area: aceOne;
-}
-#aceTwo {
-  grid-area: aceTwo;
-}
-#aceThree {
-  grid-area: aceThree;
-}
-#aceFour {
-  grid-area: aceFour;
-}
 
-
-
+#aces{
+  display: flex;
+  flex-flow: row;
+  position: relative;
+}
 .stack {
   position: relative;
   display: flex;
   justify-self: center;
   flex-direction: column;
   align-items: flex-start;
-  width:  10.5vw;
+  width:  12vw;
   max-width: 80px;
   max-height: 116.18px;
   height: 10vw;
 }
 .cardPic {
-  width: 10.5vw;
+  width: 12vw;
   position: absolute;
   max-width: 80px;
   max-height: 116.18px;
@@ -132,32 +99,50 @@ body {
 }
 
 #deck {
-    grid-area: deck;
+    margin-top: 3px;
     position: relative;
   }
-@media only screen and(min-width: 1200px){
-  #deck{
-    margin-left: 150px;
-  }
-}
+
 
 #cards {
+  margin-top: 3px;
   grid-area: cards;
   position: relative;
   display: flex;
-  flex-direction: row-reverse;
-  min-width: 120px;
-  max-width: 14.2857142857%;
+  flex-flow: row-reverse;
+  width: 14vw;
+  min-width: 7em;
 
+}
+@media only screen and (max-width: 800px){
+  #cards{
+    left: 6%;
+  }
+}
+  @media only screen and (max-width: 560px){
+    #cards{
+    left: 4%;
+  }
+}
+@media only screen and (max-width: 460px){
+  #cards{
+    left: 2%;
+  }
+}
+@media only screen and (max-width: 395px){
+  #cards{
+    left: 0%;
+  }
 }
 .ace{
   display: flex;
   position: relative;
   flex-direction: column;
   align-items: flex-start;
-  width: 10.5vw;
+  width: 12vw;
   max-width: 80px;
   height: 1fr;
+  max-height: 116.18px;
 
 }
 
@@ -211,6 +196,7 @@ body {
   width: 70%;
   max-width: 800px;
 }
+/*
 @media only screen and (max-width: 620px){
   #cards{
     right: 4vw;
