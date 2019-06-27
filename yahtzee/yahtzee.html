@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-142387420-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-142387420-1');
+</script>
+
+    <meta charset="utf-8" />
+   <meta name="description" content="Classic Yahtzee vs Computer">
+   <meta name='og: image' content=''>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yahtzee for One</title>
+    <link href="./yahtzee.css" rel="stylesheet" />
+  </head>
+  <body>
+        <header><h1>Yahtzee</h1></header>
+      <div id='wrapper'>
+          <div id='table'>
+              <table id='board1'>
+                <tr>
+                    <th colspan='3'>UPPER SECTION</th>
+                </tr>
+                <tr>
+                    <td id='ones' class='out'>  </td>
+                    <td class='tableText' id='aces'>Aces <img src='./img/1.svg' class='dieImg'></td>
+                    <td id='opOnes' class='out'>  </td>
+                </tr>
+                    <td id='twos' class='out'>  </td>
+                    <td class='tableText'>Twos <img src='./img/2.svg' class='dieImg'></td>
+                    <td id='opTwos' class='out'>  </td>
+                </tr>
+                <tr>
+                    <td id='threes' class='out'>  </td>
+                    <td class='tableText'>Threes <img src='./img/3.svg' class='dieImg'></td>
+                    <td id='opThrees' class='out'>  </td>
+                </tr>
+                    <td id='fours' class='out'>  </td>
+                    <td class='tableText'>Fours <img src='./img/4.svg' class='dieImg'></td>
+                    <td id='opFours' class='out'>  </td>
+                </tr>
+                <tr>
+                    <td id='fives' class='out'>  </td>
+                    <td class='tableText'>Fives <img src='./img/5.svg' class='dieImg'></td>
+                    <td id='opFives' class='out'>  </td>
+                </tr>
+                    <td id='sixes' class='out'>  </td>
+                    <td class='tableText'>Sixes <img src='./img/6.svg' class='dieImg'></td>
+                    <td id='opSixes' class='out'>  </td>
+                </tr>
+                <tr>
+                    <th id='upperBonus' class='out'></th>
+                    <th>BONUS</th>
+                    <th id='opupperBonus' class='out'></th>
+                </tr>
+                <tr>
+                    <th id='upperTotal' class='out'></th>
+                    <th>TOTAL</th>
+                    <th id='opupperTotal' class='out'></th>
+                </tr>
+              </table>
+              <table id='board2'>
+                  <tr>
+                      <th colspan='3'>LOWER SECTION</th>
+                  </tr>
+                  <tr>
+                      <td id='threeOfAKind' class='out'></td>
+                      <td>Three of a Kind</td>
+                      <td id='opThreeOfAKind' class='out'></td>
+                  </tr>
+                  <tr>
+                        <td id='fourOfAKind' class='out'></td>
+                        <td>Four of a Kind</td>
+                        <td id='opFourOfAKind' class='out'></td>
+                </tr>
+                <tr>
+                        <td id='fullHouse' class='out'></td>
+                        <td>Full House</td>
+                        <td id='opFullHouse' class='out'></td>
+                </tr>
+                <tr>
+                        <td id='smStraight' class='out'></td>
+                        <td>Sm Straight</td>
+                        <td id='opSmStraight' class='out'></td>
+                </tr>
+                <tr>
+                        <td id='lgStraight' class='out'></td>
+                        <td>Lg Straight</td>
+                        <td id='opLgStraight' class='out'></td>
+                </tr>
+                <tr>
+                        <td id='yahtzee' class='out'></td>
+                        <td>Yahtzee</td>
+                        <td id='opYahtzee' class='out'></td>
+                </tr>
+                <tr>
+                        <td id='chance' class='out'></td>
+                        <td>Chance</td>
+                        <td id='opChance' class='out'></td>
+                </tr>
+                <tr>
+                        <td id='yahtzeeBonus' class='out'></td>
+                        <td>Yahtzee Bonus</td class='out'>
+                        <td id='opyahtzeeBonus' class='out'></td>
+                </tr>
+                <tr>
+                    <th id='lowerTotal' class='out'></th>
+                    <th>TOTAL</th>
+                    <th id='oplowerTotal' class='out'></th>
+                </tr>
+                <tr>
+                    <th id='grandTotal' class='out'></th>
+                    <th>GRAND TOTAL</th>
+                    <th id='opgrandTotal' class='out'></th>
+                </tr>
+              </table>
+          </div>
+          <div id='diceDisp'>
+              <div id='diceIn'></div>
+              <div id='diceOut'></div>
+              <button id='roll'>Roll</button>
+          </div>
+      </div>
+  </body>
+  <script src='yahtzee.js'></script>
