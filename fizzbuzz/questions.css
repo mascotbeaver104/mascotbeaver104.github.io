@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css?family=Viga&display=swap");
+
+:root {
+  font-family: "Viga", sans-serif;
+  --color1: #adbbd4;
+  --color2: #56657f;
+  --color3: #48546a;
+  --color4: #293345;
+  --color5: #1d222a;
+  --color6: #16181d;
+}
+
+body{
+    text-align: center;
+    margin: 5% 0px 0px 0px;
+    padding: 0px;
+    background-color: var(--color6);
+    color: var(--color1);
+    width: 100%;
+}
+
+.sectionHead h2{
+  font-size: 2rem;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+.sectionHead p{
+  margin-top: 0.5rem;
+}
+.sectionHead{
+  margin-bottom: 1em;
+}
+
+.wrapper{
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px dashed var(--color4);
+    padding-bottom: 5%;
+}
+
+#weatherReport{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-top: 3%;
+}
+
+.forecast{
+  border: 2px solid var(--color2);
+  text-align: center;
+  width: 25%;
+  min-width: 8em;
+  max-width: 15em;
+  margin-bottom: 5px;
+}
+.forecast h3{
+  margin-top: 20px;
+}

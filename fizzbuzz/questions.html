@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-142387420-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-142387420-1');
+</script>
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Random Interview Questions</title>
+        <link href="questions.css" rel="stylesheet" />
+      </head>
+      <body>
+        <div class='sectionHead'>
+            <h2>Variable FizzBuzz</h2>
+            <p>Because Why Not?</p>
+        </div>
+        <div class='wrapper'>
+            <form name='form' id='form' onsubmit='fizzBuzz();return false'>
+                <table>
+                    <tr>
+                        <td>Fizz on:</td>
+                        <td><input placeholder='3' min='0' type='text' name='fizzOn' id='fizz'></td>
+                    </tr>
+                    <tr>
+                        <td>Buzz on:</td>
+                        <td><input placeholder='5' min='0' type='text' name='buzzOn' id='buzz'></td>
+                    </tr>
+                    <tr>
+                        <td>Limit:</td>
+                        <td><input placeholder='100' min='1' max='10000' type='text' name='limit' id='fblimit'></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type='submit' value='FizzBuzz!' id='subbtn'></td>
+                    </tr>
+                </table>
+                <textarea  placeholder='Hit FizzBuzz! to FizzBuzz!' id='output' name='out' rows='8' cols='32' readonly></textarea>
+            </form>
+            <script src='./fizzbuzz.js'></script>
+        </div>
+        <div class='sectionHead'><h2>Simple Prime Factor Generator</h2></div>
+        <div class='wrapper'>
+            <form id='factorForm' onsubmit='primeFactors();return false'>
+                <table>
+            <tr>
+                <td>Find Factors Of:</td>
+                <td><input type='text' id='factorIn' /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type='submit' id='factorBtn' value='Find Factors!'/></td>
+            </tr>
+            </table>
+            <textarea id='factorOut' placeholder='Enter a number to find factors!' rows='3' cols='32'></textarea>
+            </form>
+        </div>
+        <script src='./factor.js'></script>
+        <div class='sectionHead'>
+            <h2>Weather Report</h2>
+            <p id='updated'>Sorry, report unavailable.</p>
+        </div>
+        <div class='wrapper'>
+            <div id='weatherReport'>
+            
+            </div>
+        </div>
+        <script src='weatherreport.js'></script>
+      </body>
+</html>

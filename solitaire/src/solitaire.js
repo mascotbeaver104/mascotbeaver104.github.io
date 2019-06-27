@@ -49,7 +49,6 @@ class Ace extends Stack{
     this.suit = 'unset';
     }
 }
-var undrawAmount = 0;
 var stackOne = new Stack("stackOne");
 var stackTwo = new Stack("stackTwo");
 var stackThree = new Stack("stackThree");
@@ -62,6 +61,8 @@ var aceTwo = new Ace('aceTwo');
 var aceThree = new Ace('aceThree');
 var aceFour = new Ace('aceFour');
 var drawn = new Stack('cards');
+var decklen = 3;
+var drawCount = 0;
 
 class Card {
   constructor(value, suit, numValue) {
@@ -89,6 +90,7 @@ function createDeck() {
   aceThree.arr = [];
   aceFour.arr = [];
   updateAll();
+  drawCount = 0;
   let tempDeck = [];
   let rand = 0;
   for (let i = 1; i <= 52; i++) {
@@ -190,6 +192,9 @@ function dispStack(stack) {
              return;
         }else if(i === stack.arr.length-1){
           if(isLegal(stack)===true){
+              if(selected.home === drawn){
+                drawCount = 0;
+              }
               stack.arr = stack.arr.concat(selected.arr);
               dispStack(stack);
               selected.arr = [];
@@ -269,7 +274,7 @@ function getColor(card){
 
 }
 function isUndrawLegal(){
-  if(selected.home === drawn || drawn.arr.length === 0){
+  if(selected.home === drawn || drawn.arr.length === 0 || drawCount<1){
     undrawLegal(false);
   }
 }
@@ -394,6 +399,7 @@ function dispCards(){ //displays the drawn cards
                   if(selected.arr.length === 0){
                     selected.arr.push(drawn.arr.shift());
                     selected.home = drawn;
+                    drawCount = 0;
                     let found = findLegal(drawn);
                     if(found !== false){
                       found.arr.push(...selected.arr);
@@ -453,8 +459,9 @@ function dispAce(stack){
             }
 
         } else if(isLegal(stack)===true){
-            if(selected.home === drawn){
-            }
+          if(selected.home === drawn){
+            drawCount = 0;
+          }
             stack.arr.push(selected.arr.pop());
             dispStack(selected.home);
             selected.arr.home = 'undefined';
@@ -530,16 +537,22 @@ function draw(){
         drawn.arr = [];
         dispDeck();
         dispCards();
+        drawCount = 0;
         return;
     }
-    undrawAmount = 0;
     for(let i=0; i<3; i++){
+      if(deck.length === 0){
+        decklen = i;
+        break;
+      }
         if(deck.length>0){
-            undrawAmount +=1
+            decklen = 3;
             drawn.arr.unshift(deck.pop());
+            console.log(i);
         }
     }
     undrawLegal(true);
+    drawCount += 1;
     dispDeck();
     dispCards();
 }
@@ -554,12 +567,14 @@ function undrawLegal(legal){
   }
 }
 function undraw(){
-    for(let i=0; i<3; i++){
-      if(i<undrawAmount){
+    for(let i=0; (i<3 && i<decklen); i++){
         deck.push(drawn.arr.shift());
-      }
     }
-    if(drawn.arr.length===0){
+    if(decklen<3){
+      decklen = 3;
+    }
+    drawCount -= 1;
+    if(drawn.arr.length===0 || drawCount ===0){
       undrawLegal(false);
     }
     dispCards();
