@@ -225,9 +225,7 @@ function dispStack(stack) {
       selected.home = stack;
       let found = findLegal(stack);
       if(found !== false){
-        console.log(found.arr);
         found.arr.push(...selected.arr);
-        console.log(found.arr);
         dispStack(found);
         dispStack(stack);
         selected.arr =[];
@@ -548,7 +546,6 @@ function draw(){
         if(deck.length>0){
             decklen = 3;
             drawn.arr.unshift(deck.pop());
-            console.log(i);
         }
     }
     undrawLegal(true);
