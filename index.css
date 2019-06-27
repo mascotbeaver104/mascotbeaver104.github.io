@@ -27,7 +27,8 @@ body{
     padding: 0px;
 }
 #title{
-    margin-top: 5vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh; 
     background-color: var(--color5);
 }
 #links{
@@ -35,10 +36,11 @@ body{
     flex-direction: row;
     flex-wrap: wrap;
     align-content: center;
-    padding: 8vh 0px 8vh 0px;
-    
+    padding: 4vh 0px 4vh 0px;
+    height: max-content;
     background-color: var(--color4);
     justify-content: center;
+    border-radius: 1vw;
 }
 .link{
     display: flex;
@@ -62,15 +64,19 @@ body{
 #contacts{
     background-color: var(--color5);
     padding: 0px;
-    position: relative;
     margin: 0px;
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-content: center;
+    height: max-content;
+    max-height: 12vh;
 }
 #contacts a{
+    margin: 0px;
     margin-left: 5vw;
     margin-right: 5vw;
+    padding: 0px;
     justify-content: center;
 }
