@@ -3,6 +3,11 @@ function primeFactors() {
     if(number === '' || /^\d+$/.test(number)===false){
         return false;
     }
+    if(number>999999999){
+        if(confirm('This number is very large and may break your browser. Are you sure you want to continue?')===false){
+            return false;
+        }
+    }
     let factors = [1,1];
     let i=2;
     while(number !== 1){

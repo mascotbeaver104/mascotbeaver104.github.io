@@ -7,6 +7,11 @@ function fizzBuzz(){
     var buzz = document.getElementById('buzz').value;
     var limit = document.getElementById('fblimit').value;
     var output = document.getElementById('output');
+    if(limit>10000){
+        alert('Please keep limits reasonable (below 10,000)');
+        document.getElementById('fblimit').value = '100';
+        return false;
+    }
 
     fizz = (fizz==='')?3:fizz;
     buzz = (buzz==='')?5:buzz;

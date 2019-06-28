@@ -39,6 +39,16 @@ body{
     padding-bottom: 5%;
 }
 
+#factorForm, #form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.fizzInput{
+  width: 100%
+}
+
 #weatherReport{
   display: flex;
   flex-flow: row wrap;
