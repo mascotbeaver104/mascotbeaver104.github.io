@@ -27,8 +27,7 @@ body{
     padding: 0px;
 }
 #title{
-    margin-top: 2vh;
-    margin-bottom: 2vh; 
+    margin: 2vh 2em 2vh 2em;
     background-color: var(--color5);
 }
 #links{
